@@ -12,3 +12,8 @@ ARTS 是 Algorithm、Review、Tip、Share 的简写
 ## 行动
 
 ### 第一周（2019.03.26 ~ 2019.03.31）
+
+* algorithm：[两数之和](./algorithm/two-sum.md)
+* review：
+* tip：
+* share：
