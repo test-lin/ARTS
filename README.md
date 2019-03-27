@@ -15,5 +15,5 @@ ARTS 是 Algorithm、Review、Tip、Share 的简写
 
 * algorithm：[两数之和](./algorithm/two-sum.md)
 * review：
-* tip：
+* tip：[浏览量统计](./tip/浏览量统计.md)
 * share：
