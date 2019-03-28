@@ -17,6 +17,7 @@
 ## 个人解答
 
 ```php
+# 方法1
 function twoSum($nums, $target) {
     $count = count($nums);
     for ($i=0; $i < $count; $i++) { 
@@ -25,6 +26,54 @@ function twoSum($nums, $target) {
                 return [$i, $j];
             }
         }
+    }
+
+    return [];
+}
+
+# 方法2：建立值键对应
+function twoSum($nums, $target) {
+    $count = count($nums);
+    $values = [];
+    for ($i=0; $i < $count; $i++) {
+        $values[$nums[$i]] = $i;
+    }
+
+    for ($i=0; $i < $count; $i++) {
+        $value = $target - $nums[$i];
+        if (isset($values[$value])) {
+            return [$i, $values[$value]];
+        }
+    }
+
+    return [];
+}
+
+# 方法3: 通过值找键
+function twoSum($nums, $target) {
+    for ($i=0; $i < count($nums); $i++) {
+        $searchValue = $target - $nums[$i];
+        // array_search 是语言自带的函数，应该和方法2差不多。
+        if ($key = array_search($searchValue, $nums)) {
+            return [$i, $key];
+        }
+
+        unset($nums[$i]);
+    }
+
+    return [];
+}
+
+# 方法4：匹配不到的值存放到数组中，方便后面查找
+function twoSum($nums, $target) {
+    $values = [];
+    for ($i=0; $i < count($nums); $i++) {
+        $value = $target - $nums[$i];
+        if (isset($values[$value])) {
+            return [$i, $values[$value]];
+        }
+
+        $values[$nums[$i]] = $i;
     }
 
     return [];
