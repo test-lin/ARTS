@@ -16,4 +16,4 @@ ARTS 是 Algorithm、Review、Tip、Share 的简写
 * algorithm：[两数之和](./algorithm/two-sum.md)
 * review：[SSL 加固技术](./review/SSL加固技术.md)
 * tip：[浏览量统计](./tip/浏览量统计.md)
-* share：
+* share：[如何确认功能的开发时间](./share/如何确认功能的开发时间.md)
