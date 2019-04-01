@@ -17,3 +17,10 @@ ARTS 是 Algorithm、Review、Tip、Share 的简写
 * review：[SSL 加固技术](./review/SSL加固技术.md)
 * tip：[浏览量统计](./tip/浏览量统计.md)
 * share：[如何确认功能的开发时间](./share/如何确认功能的开发时间.md)
+
+### 第二周（2019.04.01 ~ 2019.04.07）
+
+* algorithm：[整数反转](./algorithm/reverse-integer.md)
+* review：Redis未经授权的访问漏洞模拟
+* tip：SSL双向验证
+* share：如何减少需求理解的偏差
