@@ -22,5 +22,5 @@ ARTS 是 Algorithm、Review、Tip、Share 的简写
 
 * algorithm：[整数反转](./algorithm/reverse-integer.md)
 * review：Redis未经授权的访问漏洞模拟
-* tip：SSL双向验证
+* tip：[SSL非对称加密](./tip/SSL非对称加密.md)
 * share：如何减少需求理解的偏差
