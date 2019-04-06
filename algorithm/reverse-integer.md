@@ -26,3 +26,63 @@
 [题目链接](https://leetcode-cn.com/problems/reverse-integer/)
 
 ## 个人解答
+
+疑问点：
+
+32 位的有符号整数需要怎么判断？
+
+思路：
+整数转成字符串类型，循环字符串字母进行处理
+
+```php
+# 方法1 使用弱语特征转换
+function reverse($x) {
+    $rev = '';
+    $signed = '';
+
+    $x = (string)$x;
+    for ($i = 0; $i < strlen($x); $i++) {
+        if ($x{$i} == '-') {
+            $signed = '-';
+            continue;
+        }
+
+        $rev = $x{$i} . $rev;
+    }
+
+    $return = $signed . (int)$rev;
+
+    if ($return < pow(-2, 31) || (pow(2, 31)-1) < $return) {
+        return 0;
+    }
+
+    return $return;
+}
+
+## 方法2 根据题解解题，方法比较奇特，断点了几次才理解实际思路
+function reverse($x) {// $x = 123;
+    $rev = 0;
+    $max_val = pow(2, 31)-1; // 2147483647
+    $min_val = pow(-2, 31); // -2147483648
+
+    while ($x) {
+        $pop = $x % 10; // 取值最后一位 123 % 10 = 3, 12 % 10 = 2, 1 % 10 = 1;
+        $x = bcdiv($x, 10); // 值进位 $x = 12, $x = 1
+
+        // 3 > 214748364.7 || (3 == 214748364.7 && 2 > 7)
+        if ($rev > bcdiv($max_val, 10) || ($rev == bcdiv($max_val, 10) && $pop > 7)) return 0;
+        // 3 < -214748364.8 || (3 == -214748364.8 && 2 < -8)
+        if ($rev < bcdiv($min_val, 10) || ($rev == bcdiv($min_val, 10) && $pop < -8)) return 0;
+        // 判断当前组装有没有越过范围，没有的话，判断当前是否和最大值除10后的值一样，再根据尾值判断是否越过范围
+
+        $rev = bcmul($rev, 10) + $pop; // 返回的值 0*10+3, 3*10+2, 32*10+1
+    }
+
+    return $rev;
+}
+
+```
+
+## 做题总结
+
+一开始没有静下心来收集和拆分难点，所以一直拖到现在才做，做的时候意外的简单。
