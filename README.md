@@ -21,6 +21,6 @@ ARTS 是 Algorithm、Review、Tip、Share 的简写
 ### 第二周（2019.04.01 ~ 2019.04.07）
 
 * algorithm：[整数反转](./algorithm/reverse-integer.md)
-* review：Redis未经授权的访问漏洞模拟
+* review：[Redis安全防范](./review/Redis安全防范.md)
 * tip：[SSL非对称加密](./tip/SSL非对称加密.md)
 * share：如何减少需求理解的偏差
