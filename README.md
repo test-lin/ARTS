@@ -24,3 +24,10 @@ ARTS 是 Algorithm、Review、Tip、Share 的简写
 * review：[Redis安全防范](./review/Redis安全防范.md)
 * tip：[SSL非对称加密](./tip/SSL非对称加密.md)
 * share：[如何减少需求理解的偏差](./share/如何减少需求理解的偏差.md)
+
+### 第三周（2019.04.08 ~ 2019.04.14）
+
+* algorithm：[回文数](./algorithm/palindrome-number.md)
+* review：HTTP/3 变更
+* tip：登录失败次数限制
+* share：回想自己写爬虫的经历
