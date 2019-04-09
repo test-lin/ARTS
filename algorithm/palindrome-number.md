@@ -34,3 +34,69 @@
 [题目链接](https://leetcode-cn.com/problems/reverse-integer/)
 
 ## 个人解答
+
+如题可知单数，负数，0结尾的整数都不是回文数
+
+```php
+# 方法1 前后数字对比
+function isPalindrome($x) {
+    if ($x < 9 || ($x % 10 === 0)) return false;
+
+    $x = (string)$x;
+    $i = 0;
+    $max = strlen($x) - 1;
+    while ($i < $max) {
+        if ($x{$i} == $x{$max}) {
+            $i++;
+            $max--;
+        } else {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+# 方法2 翻转数字对比
+function isPalindrome($x) {
+    if ($x < 9 || ($x % 10 === 0)) return false;
+
+    $rev_num = 0;
+    $val = $x;
+    while ($val != 0) {
+        // 注：凡是数字反转都可能会存在数字值越范围的情况
+        $rev_num = bcmul($rev_num, 10) + ($val % 10);// ($rev_num * 10) + ($val % 10)
+        $val = bcdiv($val, 10); // $val / 10;
+    }
+
+    return ($rev_num === $x);
+}
+
+# 方法3 数字法前后对比
+function isPalindrome($x) {
+    if ($x < 9 || ($x % 10 === 0)) return false;
+
+    // 取 $x 的位数
+    $bit = 1;
+    while (9 < bcdiv($x, $bit)) { // 除出来的数大于 9 就要进位
+        $bit = $bit * 10;
+    }
+
+    while (9 < $x) { // 除下的数如果大于 9 就还可以进行对比，如 10 的 10，个位数就不用比了
+        $l = bcdiv($x, $bit); // $x / $bit
+        $r = $x % 10;
+
+        if ($l != $r) return false;
+
+        $x = $x % $bit; // 去头
+        $x = bcdiv($x, 10); // 去尾 $x / 10
+        $bit = bcdiv($bit, 100); // $bit / 100 = 头+尾 = 10 * 10
+    }
+
+    return true;
+}
+```
+
+## 做题总结
+
+这到题加深了上周做的整数反转所使用的循环技巧。
