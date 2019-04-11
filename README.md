@@ -29,5 +29,5 @@ ARTS 是 Algorithm、Review、Tip、Share 的简写
 
 * algorithm：[回文数](./algorithm/palindrome-number.md)
 * review：HTTP/3 变更
-* tip：登录失败次数限制
+* tip：[登录失败次数限制](./tip/登录失败次数限制.md)
 * share：回想自己写爬虫的经历
