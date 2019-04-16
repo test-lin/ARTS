@@ -1,0 +1,71 @@
+混合状态验证取舍
+
+花多些力气写代码，但是很容易就看懂验证条件
+
+```php
+foreach ($order_list as $order) {
+    $return['all'] += 1;
+
+    // 发货
+    if ($order['order_status'] == 3 && $order['pay_status'] == 9 && in_array($order['shipping_status'], array(0, 1, 2)) && $order['refund_state'] != 1) {
+        $return['send'] += 1;
+    }
+    // 已发货
+    if ($order['order_status'] == 3 && $order['pay_status'] == 9 && $order['shipping_status'] == 3) {
+        $return['deliver'] += 1;
+    }
+    // 已完成
+    if ($order['order_status'] == 9) {
+        $return['finish'] += 1;
+    }
+    // 待付款
+    if ($order['order_status'] == 1) {
+        $return['obligation'] += 1;
+    }
+    // 退款成功订单
+    if ($order['order_status'] == 8 && $order['refund_state'] == 2) {
+        $return['refund'] += 1;
+    }
+    // 无效订单
+    if ($order['order_status'] == 7) {
+        $return['invalid'] += 1;
+    }
+}
+```
+
+少花力气多，不好看懂的代码
+
+```php
+foreach ($order_list as $order) {
+    $return['all'] += 1;
+
+    if ($order['order_status'] == 1) {
+        // 待付款
+        $return['obligation'] += 1;
+    } elseif ($order['order_status'] == 3) {
+        // 支付状态:0待付款,1付款中,2待支付尾款,9已支付
+        if ($order['pay_status'] == 2) {
+            // $return = '<span class="red">待支付尾款</span>';
+            // $return['obligation'] += 1;
+        } elseif ($order['pay_status'] == 9) {
+            // 商品配送情况:0待发货,1备货中,2部分发货,3已发货,9已收货
+            if (in_array($order['shipping_status'], array(0, 1, 2)) && $order['refund_state'] != 1) {
+                // $return = '<span class="red">待发货</span>';
+                $return['send'] += 1;
+            } elseif ($order['shipping_status'] == 3) {
+                // $return = '<span class="red">已发货</span>';
+                $return['deliver'] += 1;
+            }
+        }
+    } elseif ($order['order_status'] == 7) {
+        $return['invalid'] += 1;
+        // return '<span class="red">无效订单</span>';
+    } elseif ($order['order_status'] == 8 && $order['refund_state'] == 2) { // 退款成功订单
+        $return['refund'] += 1;
+    } elseif ($order['order_status'] == 9) {
+        // $return = '<span class="red">已完成</span>';
+        $return['finish'] += 1;
+    }
+}
+```
+
