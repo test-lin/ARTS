@@ -36,5 +36,5 @@ ARTS 是 Algorithm、Review、Tip、Share 的简写
 
 * algorithm：[罗马数字转整数](./algorithm/roman-to-integer.md)
 * review：[什么是 HTTP/2](./review/什么是HTTP.2.md)
-* tip：OAuth 的原理和使用
+* tip：[Redis GEO 附近的连锁店](./tip/Redis_GEO_附近的连锁店.md)
 * share：[表状态程序管理应用](./share/表状态程序管理应用.md)
