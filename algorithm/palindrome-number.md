@@ -33,6 +33,12 @@
 
 [题目链接](https://leetcode-cn.com/problems/reverse-integer/)
 
+注： 反转回文时需注意数值溢出
+
+## 标签
+
+* 数学
+
 ## 个人解答
 
 如题可知单数，负数，0结尾的整数都不是回文数

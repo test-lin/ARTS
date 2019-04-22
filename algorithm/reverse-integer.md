@@ -25,6 +25,10 @@
 
 [题目链接](https://leetcode-cn.com/problems/reverse-integer/)
 
+## 标签
+
+* 数学
+
 ## 个人解答
 
 疑问点：

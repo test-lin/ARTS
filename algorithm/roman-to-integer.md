@@ -64,6 +64,17 @@ M             1000
 
 [题目链接](https://leetcode-cn.com/problems/roman-to-integer/)
 
+### 提示
+
+* 如果 I 在 V 或 X 之前, 减去 1 如: IV = 4 and IX = 9
+* 如果 X 在 L 或 C 之前, 减去 10 如: XL = 40 and XC = 90
+* 如果 C 在 D 或 M 之前, 减去 100 如: CD = 400 and CM = 900
+
+## 标签
+
+* 数学
+* 字符串
+
 ## 个人解答
 
 ```php

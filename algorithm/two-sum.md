@@ -14,6 +14,11 @@
 
 [题目链接](https://leetcode-cn.com/problems/two-sum/)
 
+## 标签
+
+* 数组
+* 哈希表
+
 ## 个人解答
 
 ```php
